@@ -3,8 +3,8 @@ import discord
 import praw
 import random
 
-REDDIT_SECRET = "FXKmTW5GP83AoafbLQIGXcxqsdMRPA"
-REDDIT_APP_ID = "yfeq3lCwPqADkw"
+REDDIT_SECRET = "####"  # hidden for security purposes.
+REDDIT_APP_ID = "####"  # hidden for security purposes.
 
 
 class Nerdy(commands.Cog):
