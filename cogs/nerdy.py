@@ -30,14 +30,13 @@ class Nerdy(commands.Cog):
             return
         memeType = args[0]
         if memeType == "nerd":
-            if self.reddit:
-                chosen_sub = "Nerdjokes"
-                submissions = self.reddit.subreddit(chosen_sub).hot()
-                post = random.randint(1, 10)
-                for _ in range(post):
-                    submission = next(x for x in submissions if not x.stickied)
-                
-                await context.send(submission.url)
+            chosen_sub = "Nerdjokes"
+            submissions = self.reddit.subreddit(chosen_sub).hot()
+            post = random.randint(1, 10)
+            for _ in range(post):
+                submission = next(x for x in submissions if not x.stickied)
+            
+            await context.send(submission.url)
 
         elif memeType == "physics":
             chosen_sub = "physicsmemes"
