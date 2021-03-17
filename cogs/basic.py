@@ -25,15 +25,31 @@ class basic(commands.Cog):
     
     @commands.command()
     async def bye(self, context):
+        '''
+        Bid farewell to thy companion.
+        '''
         author_name = str(context.author)[:-5]
         async with context.channel.typing():
             await context.send("bubyee " + author_name + " :)")
 
     @commands.command()
     async def hello(self, context):
+        '''
+        Greet my bot with a good message :)
+        '''
         author_name = str(context.author)[:-5]
         async with context.channel.typing():
             await context.send("henlo " + author_name + " :3")
+    
+    @commands.command()
+    async def bored(self, context):
+        '''
+        Try meeeee.
+        '''
+        author_name = str(context.author)[:-5]
+        async with context.channel.typing():
+            await context.send("abhyas kar nalayak " + author_name + " -.-")
+
 
 def setup(bot):
     bot.add_cog(basic(bot))

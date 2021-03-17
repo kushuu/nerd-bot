@@ -2,9 +2,13 @@ from discord.ext import commands
 import discord
 import praw
 import random
+import os
+from dotenv import load_dotenv
 
-REDDIT_SECRET = "FXKmTW5GP83AoafbLQIGXcxqsdMRPA"
-REDDIT_APP_ID = "yfeq3lCwPqADkw"
+load_dotenv()
+
+REDDIT_SECRET = os.getenv('REDDIT_SECRET')
+REDDIT_APP_ID = os.getenv('REDDIT_APP_ID')
 
 
 class Nerdy(commands.Cog):
@@ -18,7 +22,7 @@ class Nerdy(commands.Cog):
     async def meme(self, context, *args):
         '''
         Command to get physics/general nerdy memes.
-        Categories available : nerd/physics
+        Categories available : nerd,physics,geography
         '''
         if len(args) == 0:
             async with context.channel.typing():
@@ -44,16 +48,19 @@ class Nerdy(commands.Cog):
 
             await context.send(submission.url)
 
+        elif memeType == "geography":
+            chosen_sub = "GeographyTrivia"
+            submissions = self.reddit.subreddit(chosen_sub).hot()
+            print(type(submissions))
+            post = random.randint(1, 10)
+            for _ in range(post):
+                submission = next(x for x in submissions if not x.stickied)
+
+            await context.send(submission.url)
+
         else:
             async with context.channel.typing():
                 await context.send("Refer to help section to see all the possible meme categories available here hehe")
-
-
-    @commands.command()
-    async def bored(self, context):
-        author_name = str(context.author)[:-5]
-        async with context.channel.typing():
-            await context.send("abhyas kar nalayak " + author_name + " -.-")
 
             
     @commands.command()
