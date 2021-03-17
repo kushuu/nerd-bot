@@ -26,7 +26,7 @@ class Nerdy(commands.Cog):
         '''
         if len(args) == 0:
             async with context.channel.typing():
-                await context.send("Add nerd/physics/geography as an argument")
+                await context.send("Add nerd/physics/geography/shower thoughts as an argument")
             return
         memeType = args[0]
         if memeType == "nerd":
