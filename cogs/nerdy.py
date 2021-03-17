@@ -57,6 +57,16 @@ class Nerdy(commands.Cog):
                 submission = next(x for x in submissions if not x.stickied)
 
             await context.send(submission.url)
+            
+        elif memeType == "shower" and args[1] == "thoughts":
+            chosen_sub = "nerdshowerthoughts"
+            submissions = self.reddit.subreddit(chosen_sub).hot()
+            print(type(submissions))
+            post = random.randint(1, 10)
+            for _ in range(post):
+                submission = next(x for x in submissions if not x.stickied)
+
+            await context.send(submission.url)
 
         else:
             async with context.channel.typing():
