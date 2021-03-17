@@ -86,3 +86,7 @@ class Nerdy(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Nerdy(bot))
+    
+
+
+    # random shit.
