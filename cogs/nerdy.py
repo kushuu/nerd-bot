@@ -22,7 +22,7 @@ class Nerdy(commands.Cog):
     async def meme(self, context, *args):
         '''
         Command to get physics/general nerdy memes.
-        Categories available : nerd,physics,geography
+        Categories available : nerd,physics,geography,shower thoughts
         '''
         if len(args) == 0:
             async with context.channel.typing():
