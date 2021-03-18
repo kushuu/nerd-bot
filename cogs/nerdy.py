@@ -29,47 +29,48 @@ class Nerdy(commands.Cog):
                 await context.send("Add nerd/physics/geography/shower thoughts as an argument")
             return
         memeType = args[0]
-        if memeType == "nerd":
-            chosen_sub = "Nerdjokes"
-            submissions = self.reddit.subreddit(chosen_sub).hot()
-            post = random.randint(1, 10)
-            for _ in range(post):
-                submission = next(x for x in submissions if not x.stickied)
-            
-            await context.send(submission.url)
+        if self.reddit:
+            if memeType == "nerd":
+                chosen_sub = "Nerdjokes"
+                submissions = self.reddit.subreddit(chosen_sub).hot()
+                post = random.randint(1, 10)
+                for _ in range(post):
+                    submission = next(x for x in submissions if not x.stickied)
+                
+                await context.send(submission.url)
 
-        elif memeType == "physics":
-            chosen_sub = "physicsmemes"
-            submissions = self.reddit.subreddit(chosen_sub).hot()
-            post = random.randint(1, 10)
-            for _ in range(post):
-                submission = next(x for x in submissions if not x.stickied)
+            elif memeType == "physics":
+                chosen_sub = "physicsmemes"
+                submissions = self.reddit.subreddit(chosen_sub).hot()
+                post = random.randint(1, 10)
+                for _ in range(post):
+                    submission = next(x for x in submissions if not x.stickied)
 
-            await context.send(submission.url)
+                await context.send(submission.url)
 
-        elif memeType == "geography":
-            chosen_sub = "GeographyTrivia"
-            submissions = self.reddit.subreddit(chosen_sub).hot()
-            print(type(submissions))
-            post = random.randint(1, 10)
-            for _ in range(post):
-                submission = next(x for x in submissions if not x.stickied)
+            elif memeType == "geography":
+                chosen_sub = "GeographyTrivia"
+                submissions = self.reddit.subreddit(chosen_sub).hot()
+                print(type(submissions))
+                post = random.randint(1, 10)
+                for _ in range(post):
+                    submission = next(x for x in submissions if not x.stickied)
 
-            await context.send(submission.url)
-            
-        elif memeType == "shower" and args[1] == "thoughts":
-            chosen_sub = "nerdshowerthoughts"
-            submissions = self.reddit.subreddit(chosen_sub).hot()
-            print(type(submissions))
-            post = random.randint(1, 10)
-            for _ in range(post):
-                submission = next(x for x in submissions if not x.stickied)
+                await context.send(submission.url)
+                
+            elif memeType == "shower" and args[1] == "thoughts":
+                chosen_sub = "nerdshowerthoughts"
+                submissions = self.reddit.subreddit(chosen_sub).hot()
+                print(type(submissions))
+                post = random.randint(1, 10)
+                for _ in range(post):
+                    submission = next(x for x in submissions if not x.stickied)
 
-            await context.send(submission.url)
+                await context.send(submission.url)
 
-        else:
-            async with context.channel.typing():
-                await context.send("Refer to help section to see all the possible meme categories available here hehe")
+            else:
+                async with context.channel.typing():
+                    await context.send("Refer to help section to see all the possible meme categories available here hehe")
 
             
     @commands.command()
