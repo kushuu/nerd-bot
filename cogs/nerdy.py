@@ -69,9 +69,6 @@ class Nerdy(commands.Cog):
                 await context.send(submission.url)
             
             elif memeType == "facts":
-                '''
-                Fun, Random, Interesting, Mindblowing
-                '''
                 chosen_sub = "facts"
                 submissions = self.reddit.subreddit(chosen_sub).hot()
                 print(type(submissions))
