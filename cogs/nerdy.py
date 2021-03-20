@@ -10,7 +10,6 @@ load_dotenv()
 REDDIT_SECRET = os.getenv('REDDIT_SECRET')
 REDDIT_APP_ID = os.getenv('REDDIT_APP_ID')
 
-
 class Nerdy(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
