@@ -22,11 +22,11 @@ class Nerdy(commands.Cog):
     async def meme(self, context, *args):
         '''
         Command to get physics/general nerdy memes.
-        Categories available : nerd,physics,geography,shower thoughts/geeky
+        Categories available : nerd,physics,geography,shower thoughts/geeky/facts
         '''
         if len(args) == 0:
             async with context.channel.typing():
-                await context.send("Add nerd/physics/geography/shower thoughts/geeky as an argument")
+                await context.send("Add nerd/physics/geography/shower thoughts/geeky/facts as an argument")
             return
         memeType = args[0]
         if self.reddit:
@@ -73,6 +73,16 @@ class Nerdy(commands.Cog):
                 for _ in range(post):
                     submission = next(x for x in submissions if not x.stickied)
 
+                await context.send(submission.url)
+
+            elif memeType == "facts":
+                chosen_sub = "facts"
+                submissions = self.reddit.subreddit(chosen_sub).hot()
+                post = random.randint(1, 10)
+                for _ in range(post):
+                    submission = next(x for x in submissions if not x.stickied)
+
+                await context.send(submission.url)
 
             else:
                 async with context.channel.typing():
