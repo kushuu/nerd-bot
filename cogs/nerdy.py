@@ -99,7 +99,11 @@ class Nerdy(commands.Cog):
             await context.send("Enter an expression first (:")
             return
         
-        ans = str(eval(args[0]))
+        try:
+            ans = str(eval(args[0]))
+        except:
+            await context.send("Cant evaluate that expression right now :(")
+            return
         await context.send("Your expression evaluates to: " + ans)
 
 def setup(bot):
