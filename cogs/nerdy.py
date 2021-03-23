@@ -4,7 +4,7 @@ import praw
 import random
 import os
 from dotenv import load_dotenv
-from math import ceil, floor, sin, cos, tan
+from math import ceil, floor, sin, cos, tan, exp
 
 load_dotenv()
 
@@ -93,6 +93,7 @@ class Nerdy(commands.Cog):
     async def eval(self, context, *args):
         '''
         Evaluate simple mathematical expressions :)
+        Operations available: arithematic operations, trigonometric functions, exponential, ceil and floor.
         Note: Arguments for trignometric functions should be in radians.
         '''
         if len(args) < 1:
