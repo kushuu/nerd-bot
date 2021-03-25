@@ -107,5 +107,9 @@ class Nerdy(commands.Cog):
             return
         await context.send("Your expression evaluates to: " + ans)
 
+    @commands.command()
+    async def news(self, context):
+        return+
+
 def setup(bot):
     bot.add_cog(Nerdy(bot))
