@@ -2,6 +2,7 @@ from discord.ext import commands
 import discord
 import praw
 import random
+import feedparser
 import os
 from dotenv import load_dotenv
 from math import ceil, floor, sin, cos, tan, exp
@@ -108,8 +109,43 @@ class Nerdy(commands.Cog):
         await context.send("Your expression evaluates to: " + ans)
 
     @commands.command()
-    async def news(self, context):
-        return+
+    async def news(self, context, *args):
+        '''
+        Gives latest news/articles in the field of : general, tech, physics
+        '''
+        if len(args) < 1:
+            await context.send("Please enter one of the valid arguments.")
+            return
+        
+        if args[0] == "general":
+            NewsFeed = feedparser.parse("https://timesofindia.indiatimes.com/rssfeeds/296589292.cms")
+
+            entries = NewsFeed.entries
+            idx = random.randint(0, len(entries)-1)
+            entry = entries[idx]
+            await context.send("Published on : " + str(entry.published))
+            await context.send(entry.link)
+            
+        elif args[0] == "tech":
+            NewsFeed = feedparser.parse("https://www.theverge.com/rss/index.xml")
+
+            entries = NewsFeed.entries
+            idx = random.randint(0, len(entries)-1)
+            entry = entries[idx]
+            await context.send("Published on : " + str(entry.published))
+            await context.send(entry.link)
+
+        elif args[0] == "physics":
+            NewsFeed = feedparser.parse("https://phys.org/rss-feed/physics-news/")
+
+            entries = NewsFeed.entries
+            idx = random.randint(0, len(entries)-1)
+            entry = entries[idx]
+            await context.send("Published on : " + str(entry.published))
+            await context.send(entry.link)
+        else:
+            await context.send("Please enter one of the valid arguments.")
+            return
 
 def setup(bot):
     bot.add_cog(Nerdy(bot))
