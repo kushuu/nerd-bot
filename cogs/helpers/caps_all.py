@@ -1,7 +1,7 @@
 def ind_state(state):
     state_cap = {
-        "Andhra_Pradesh" : "Hyderabad (Proposed Capital Amaravati)",
-        "Arunachal_Pradesh" : "Itanagar",
+        "Andhra pradesh" : "Hyderabad (Proposed Capital Amaravati)",
+        "Arunachal pradesh" : "Itanagar",
         "Assam"	: "Dispur",
         "Bihar" : "Patna",
         "Chhattisgarh" : "Raipur",
@@ -12,7 +12,7 @@ def ind_state(state):
         "Jharkhand" : "Ranchi",
         "Karnataka" : "Bengaluru" ,
         "Kerala" : "Thiruvananthapuram",
-        "Madhya_Pradesh" : "Bhopal",
+        "Madhya pradesh" : "Bhopal",
         "Maharashtra" : "Mumbai",
         "Manipur" : "Imphal",
         "Meghalaya" : "Shillong",
@@ -22,12 +22,12 @@ def ind_state(state):
         "Punjab" : "Chandigarh",
         "Rajasthan" : "Jaipur",
         "Sikkim" : "Gangtok",
-        "Tamil_Nadu" : "Chennai",
+        "Tamil nadu" : "Chennai",
         "Telangana" : "Hyderabad",
         "Tripura" : "Agartala",
-        "Uttar_Pradesh" : "Lucknow",
+        "Uttar pradesh" : "Lucknow",
         "Uttarakhand" : "Dehradun",
-        "West_Bengal" : "Kolkata"
+        "West bengal" : "Kolkata"
     }
 
     if state not in state_cap.keys():

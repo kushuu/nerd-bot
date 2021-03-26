@@ -155,7 +155,8 @@ class Nerdy(commands.Cog):
     async def capital(self, context, *args):
         '''
         Enter countries' names as argument.
-        Note: Indian states' capitals are so available :) just write the state's name followed by "india" (no spaces between words in state's name).
+        Indian states' capitals are so available :)
+        Note: If a country's/state's name is made up of multiple words, write it in " ".
         '''
         if len(args) < 1:
             await context.send("Please give the name of a country to get its capital :)")
