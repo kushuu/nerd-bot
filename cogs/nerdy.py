@@ -124,6 +124,7 @@ class Nerdy(commands.Cog):
             idx = random.randint(0, len(entries)-1)
             entry = entries[idx]
             await context.send("Published on : " + str(entry.published))
+            await context.send("Title : " + str(entry.title))
             await context.send(entry.link)
             
         elif args[0] == "tech":
@@ -133,6 +134,7 @@ class Nerdy(commands.Cog):
             idx = random.randint(0, len(entries)-1)
             entry = entries[idx]
             await context.send("Published on : " + str(entry.published))
+            await context.send("Title : " + str(entry.title))
             await context.send(entry.link)
 
         elif args[0] == "physics":
@@ -142,6 +144,7 @@ class Nerdy(commands.Cog):
             idx = random.randint(0, len(entries)-1)
             entry = entries[idx]
             await context.send("Published on : " + str(entry.published))
+            await context.send("Title : " + str(entry.title))
             await context.send(entry.link)
         else:
             await context.send("Please enter one of the valid arguments.")
