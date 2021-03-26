@@ -6,6 +6,7 @@ import feedparser
 import os
 from dotenv import load_dotenv
 from math import ceil, floor, sin, cos, tan, exp
+from .helpers import caps_all
 
 load_dotenv()
 
@@ -149,6 +150,33 @@ class Nerdy(commands.Cog):
         else:
             await context.send("Please enter one of the valid arguments.")
             return
+
+    @commands.command()
+    async def capital(self, context, *args):
+        '''
+        Enter countries' names as argument.
+        Note: Indian states' capitals are so available :) just write the state's name followed by "india" (no spaces between words in state's name).
+        '''
+        if len(args) < 1:
+            await context.send("Please give the name of a country to get its capital :)")
+            return
+
+        country = args[0].lower()
+        if country == "india":
+            if len(args) > 1:
+                state = args[1].capitalize()
+                cap = caps_all.ind_state(state)
+                if cap == -1:
+                    await context.send("Enter a valid state or get your spellings checked!")
+                    return
+                await context.send("Capital of " + str(state) + " : "  + cap)
+                return
+        
+        cap = caps_all.world_caps(args[0])
+        if cap == -1:
+            await context.send("Enter a valid country or get your spellings checked!")
+            return
+        await context.send("Capital of " + str(args[0]) + " : "  + cap)
 
 def setup(bot):
     bot.add_cog(Nerdy(bot))
