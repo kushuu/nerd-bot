@@ -265,6 +265,7 @@ def world_caps(country):
         "united kingdom" : "London",
         "uk" : "London",
         "united states" : "Washington",
+        "united states of america" : "Washington",
         "us" : "Washington",
         "usa" : "Washington",
         "uruguay" : "Montevideo",
