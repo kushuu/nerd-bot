@@ -165,7 +165,7 @@ class Nerdy(commands.Cog):
         country = args[0].lower()
         if country == "india":
             if len(args) > 1:
-                state = args[1].capitalize()
+                state = args[1].lower()
                 cap = caps_all.ind_state(state)
                 if cap == -1:
                     await context.send("Enter a valid state or get your spellings checked!")
