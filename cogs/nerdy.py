@@ -172,6 +172,16 @@ class Nerdy(commands.Cog):
                     return
                 await context.send("Capital of " + str(state) + " : "  + cap)
                 return
+
+        elif country == "us" or country == "united states" or country == "united states of america" or country == "usa":
+            if len(args) > 1:
+                state = args[1].lower()
+                cap = caps_all.us_caps(state)
+                if cap == -1:
+                    await context.send("Enter a valid state or get your spellings checked!")
+                    return
+                await context.send("Capital of " + str(state) + " : "  + cap)
+                return
         
         cap = caps_all.world_caps(args[0].lower())
         if cap == -1:
