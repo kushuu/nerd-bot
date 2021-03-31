@@ -296,8 +296,6 @@ def world_caps(country):
 
 
 def us_caps(state):
-    import json
-
     states_cap = {
         "al" : "Montgomery",
         "alabama" : "Montgomery",
@@ -402,6 +400,8 @@ def us_caps(state):
     }
 
     # code to convert json to dictionary.
+    # import json
+
     # with open('US_caps.json') as json_file:
     #     data = json.load(json_file)
     #     for i in data:
@@ -411,3 +411,238 @@ def us_caps(state):
     if state not in states_cap.keys():
         return -1
     return states_cap[state]
+
+
+def us_state_lat(state):
+    lats = {
+        "al" : "32.361538",
+        "alabama" : "32.361538",   
+        "ak" : "58.301935",        
+        "alaska" : "58.301935",    
+        "az" : "33.448457",        
+        "arizona" : "33.448457",   
+        "ar" : "34.736009",        
+        "arkansas" : "34.736009",  
+        "ca" : "38.555605",        
+        "california" : "38.555605",
+        "co" : "39.7391667",
+        "colorado" : "39.7391667",
+        "ct" : "41.767",
+        "connecticut" : "41.767",
+        "de" : "39.161921",
+        "delaware" : "39.161921",
+        "fl" : "30.4518",
+        "florida" : "30.4518",
+        "ga" : "33.76",
+        "georgia" : "33.76",
+        "hi" : "21.30895",
+        "hawaii" : "21.30895",
+        "id" : "43.613739",
+        "idaho" : "43.613739",
+        "il" : "39.783250",
+        "illinois" : "39.783250",
+        "in" : "39.790942",
+        "indiana" : "39.790942",
+        "ia" : "41.590939",
+        "iowa" : "41.590939",
+        "ks" : "39.04",
+        "kansas" : "39.04",
+        "ky" : "38.197274",
+        "kentucky" : "38.197274",
+        "la" : "30.45809",
+        "louisiana" : "30.45809",
+        "me" : "44.323535",
+        "maine" : "44.323535",
+        "md" : "38.972945",
+        "maryland" : "38.972945",
+        "ma" : "42.2352",
+        "massachusetts" : "42.2352",
+        "mi" : "42.7335",
+        "michigan" : "42.7335",
+        "mn" : "44.95",
+        "minnesota" : "44.95",
+        "ms" : "32.320",
+        "mississippi" : "32.320",
+        "mo" : "38.572954",
+        "missouri" : "38.572954",
+        "mt" : "46.595805",
+        "montana" : "46.595805",
+        "ne" : "40.809868",
+        "nebraska" : "40.809868",
+        "nv" : "39.160949",
+        "nevada" : "39.160949",
+        "nh" : "43.220093",
+        "new hampshire" : "43.220093",
+        "nj" : "40.221741",
+        "new jersey" : "40.221741",
+        "nm" : "35.667231",
+        "new mexico" : "35.667231",
+        "ny" : "42.659829",
+        "new york" : "42.659829",
+        "nc" : "35.771",
+        "north carolina" : "35.771",
+        "nd" : "48.813343",
+        "north dakota" : "48.813343",
+        "oh" : "39.962245",
+        "ohio" : "39.962245",
+        "ok" : "35.482309",
+        "oklahoma" : "35.482309",
+        "or" : "44.931109",
+        "oregon" : "44.931109",
+        "pa" : "40.269789",
+        "pennsylvania" : "40.269789",
+        "ri" : "41.82355",
+        "rhode island" : "41.82355",
+        "sc" : "34.000",
+        "south carolina" : "34.000",
+        "sd" : "44.367966",
+        "south dakota" : "44.367966",
+        "tn" : "36.165",
+        "tennessee" : "36.165",
+        "tx" : "30.266667",
+        "texas" : "30.266667",
+        "ut" : "40.7547",
+        "utah" : "40.7547",
+        "vt" : "44.26639",
+        "vermont" : "44.26639",
+        "va" : "37.54",
+        "virginia" : "37.54",
+        "wa" : "47.042418",
+        "washington" : "47.042418",
+        "wv" : "38.349497",
+        "west virginia" : "38.349497",
+        "wi" : "43.074722",
+        "wisconsin" : "43.074722",
+        "wy" : "41.145548",
+        "wyoming" : "41.145548"
+    }
+    
+    # code to convert json to dictionary.
+    # import json
+
+    # with open('US_caps.json') as json_file:
+    #         data = json.load(json_file)
+    #         for i in data:
+    #             print('"' + i['abbr'].lower() + '"' + " : " + '"' + i['lat'] + '",')
+    #             print('"' + i['name'].lower() + '"' + " : " + '"' + i['lat'] + '",')
+
+    if state not in lats.keys():
+        return -1
+    return lats[state]
+
+
+def us_state_long(state):
+    longs = {
+        "al" : "-86.279118",
+        "alabama" : "-86.279118",    
+        "ak" : "-134.419740",        
+        "alaska" : "-134.419740",    
+        "az" : "-112.073844",        
+        "arizona" : "-112.073844",   
+        "ar" : "-92.331122",
+        "arkansas" : "-92.331122",   
+        "ca" : "-121.468926",        
+        "california" : "-121.468926",
+        "co" : "-104.984167",
+        "colorado" : "-104.984167",
+        "ct" : "-72.677",
+        "connecticut" : "-72.677",
+        "de" : "-75.526755",
+        "delaware" : "-75.526755",
+        "fl" : "-84.27277",
+        "florida" : "-84.27277",
+        "ga" : "-84.39",
+        "georgia" : "-84.39",
+        "hi" : "-157.826182",
+        "hawaii" : "-157.826182",
+        "id" : "-116.237651",
+        "idaho" : "-116.237651",
+        "il" : "-89.650373",
+        "illinois" : "-89.650373",
+        "in" : "-86.147685",
+        "indiana" : "-86.147685",
+        "ia" : "-93.620866",
+        "iowa" : "-93.620866",
+        "ks" : "-95.69",
+        "kansas" : "-95.69",
+        "ky" : "-84.86311",
+        "kentucky" : "-84.86311",
+        "la" : "-91.140229",
+        "louisiana" : "-91.140229",
+        "me" : "-69.765261",
+        "maine" : "-69.765261",
+        "md" : "-76.501157",
+        "maryland" : "-76.501157",
+        "ma" : "-71.0275",
+        "massachusetts" : "-71.0275",
+        "mi" : "-84.5467",
+        "michigan" : "-84.5467",
+        "mn" : "-93.094",
+        "minnesota" : "-93.094",
+        "ms" : "-90.207",
+        "mississippi" : "-90.207",
+        "mo" : "-92.189283",
+        "missouri" : "-92.189283",
+        "mt" : "-112.027031",
+        "montana" : "-112.027031",
+        "ne" : "-96.675345",
+        "nebraska" : "-96.675345",
+        "nv" : "-119.753877",
+        "nevada" : "-119.753877",
+        "nh" : "-71.549127",
+        "new hampshire" : "-71.549127",
+        "nj" : "-74.756138",
+        "new jersey" : "-74.756138",
+        "nm" : "-105.964575",
+        "new mexico" : "-105.964575",
+        "ny" : "-73.781339",
+        "new york" : "-73.781339",
+        "nc" : "-78.638",
+        "north carolina" : "-78.638",
+        "nd" : "-100.779004",
+        "north dakota" : "-100.779004",
+        "oh" : "-83.000647",
+        "ohio" : "-83.000647",
+        "ok" : "-97.534994",
+        "oklahoma" : "-97.534994",
+        "or" : "-123.029159",
+        "oregon" : "-123.029159",
+        "pa" : "-76.875613",
+        "pennsylvania" : "-76.875613",
+        "ri" : "-71.422132",
+        "rhode island" : "-71.422132",
+        "sc" : "-81.035",
+        "south carolina" : "-81.035",
+        "sd" : "-100.336378",
+        "south dakota" : "-100.336378",
+        "tn" : "-86.784",
+        "tennessee" : "-86.784",
+        "tx" : "-97.75",
+        "texas" : "-97.75",
+        "ut" : "-111.892622",
+        "utah" : "-111.892622",
+        "vt" : "-72.57194",
+        "vermont" : "-72.57194",
+        "va" : "-77.46",
+        "virginia" : "-77.46",
+        "wa" : "-122.893077",
+        "washington" : "-122.893077",
+        "wv" : "-81.633294",
+        "west virginia" : "-81.633294",
+        "wi" : "-89.384444",
+        "wisconsin" : "-89.384444",
+        "wy" : "-104.802042",
+        "wyoming" : "-104.802042"
+    }
+
+    # import json
+
+    # with open('US_caps.json') as json_file:
+    #     data = json.load(json_file)
+    #     for i in data:
+    #         print('"' + i['abbr'].lower() + '"' + " : " + '"' + i['long'] + '",')
+    #         print('"' + i['name'].lower() + '"' + " : " + '"' + i['long'] + '",')
+
+    if state not in longs.keys():
+        return -1
+    return longs[state]
