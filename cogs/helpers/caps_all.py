@@ -646,3 +646,8 @@ def us_state_long(state):
     if state not in longs.keys():
         return -1
     return longs[state]
+
+
+def geocode(coordinates):
+    from .temp import reverseGeocode as rg
+    return rg(coordinates)

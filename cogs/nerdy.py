@@ -90,7 +90,6 @@ class Nerdy(commands.Cog):
                 async with context.channel.typing():
                     await context.send("Refer to help section to see all the possible meme categories available here hehe")
 
-            
     @commands.command()
     async def eval(self, context, *args):
         '''
@@ -204,8 +203,10 @@ class Nerdy(commands.Cog):
         if lat == -1 or longi == -1:
             await context.send("Please enter a valid US state or get your spellings checked!")
             return
-        await context.send("{}'s latitude : ".format(state) + str(lat))
-        await context.send("{}'s longitude : ".format(state) + str(longi))
+        await context.send("{}'s latitude : ".format(caps_all.us_caps(state)) + str(lat))
+        await context.send("{}'s longitude : ".format(caps_all.us_caps(state)) + str(longi))
+        link = caps_all.geocode((lat, longi))
+        print(link)
 
 def setup(bot):
     bot.add_cog(Nerdy(bot))
