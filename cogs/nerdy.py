@@ -205,8 +205,8 @@ class Nerdy(commands.Cog):
             return
         await context.send("{}'s latitude : ".format(caps_all.us_caps(state)) + str(lat))
         await context.send("{}'s longitude : ".format(caps_all.us_caps(state)) + str(longi))
-        link = caps_all.geocode((lat, longi))
-        print(link)
+        # link = caps_all.geocode((lat, longi))
+        # print(link)
 
 def setup(bot):
     bot.add_cog(Nerdy(bot))
