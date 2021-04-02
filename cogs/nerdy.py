@@ -207,7 +207,10 @@ class Nerdy(commands.Cog):
         await context.send("{}'s latitude : ".format(caps_all.us_caps(state)) + str(lat))
         await context.send("{}'s longitude : ".format(caps_all.us_caps(state)) + str(longi))
         place = caps_all.reverseGeocode((lat, longi))
-        await context.send("https://www.google.com/maps/place/" + place)
+        if place != 0:
+            await context.send("https://www.google.com/maps/place/" + place)
+        else:
+            await context.send("Could not find that location automatically, please try searching on your own hehe")
 
 def setup(bot):
     bot.add_cog(Nerdy(bot))
