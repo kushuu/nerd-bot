@@ -758,12 +758,19 @@ def reverseGeocode(coordinates):
         "wyoming" : "Cheyenne"
     }
     location = location.raw["display_name"]#.split(',')#.rstrip().lstrip()
-    found = 0
+    state_found = 0
+    cap_found = 0
+    ans = []
     for part in location.split(','):
         if not part.lstrip().isnumeric():
             if part[1:] in states_cap.values():
-                found = 1
-                return part[1:]
+                state_found = 1
+                ans.append(part[1:].replace(" ", "+"))
+            if part[1:].lower() in states_cap.keys():
+                cap_found = 1
+                ans.append(part[1:].replace(" ", "+"))
 
-    if not found:
+    if not state_found or not cap_found:
         return -1
+    else:
+        return "+".join(ans)
