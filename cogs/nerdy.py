@@ -191,22 +191,23 @@ class Nerdy(commands.Cog):
     @commands.command()
     async def position(self, context, *args):
         '''
-        Simple command to get latitude and longitude of a US state.
+        Simple command to get latitude and longitude of a US state's capital.
         '''
         if len(args) < 1:
             await context.send("Enter a state to get its position")
             return
         
-        state = args[0]
+        state = args[0].lower()
         lat = caps_all.us_state_lat(state)
         longi = caps_all.us_state_long(state)
         if lat == -1 or longi == -1:
             await context.send("Please enter a valid US state or get your spellings checked!")
             return
+        await context.send("{}'s captial : {}".format(state, caps_all.us_caps(state)))
         await context.send("{}'s latitude : ".format(caps_all.us_caps(state)) + str(lat))
         await context.send("{}'s longitude : ".format(caps_all.us_caps(state)) + str(longi))
-        # link = caps_all.geocode((lat, longi))
-        # print(link)
+        place = caps_all.reverseGeocode((lat, longi))
+        await context.send("https://www.google.com/maps/place/" + place)
 
 def setup(bot):
     bot.add_cog(Nerdy(bot))

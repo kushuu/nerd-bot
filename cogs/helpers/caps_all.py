@@ -648,6 +648,13 @@ def us_state_long(state):
     return longs[state]
 
 
-def geocode(coordinates):
-    from .temp import reverseGeocode as rg
-    return rg(coordinates)
+def reverseGeocode(coordinates):
+    from geopy.geocoders import Nominatim as nm
+    locator = nm(user_agent="myGeocoder")
+    try:
+        location = locator.reverse(coordinates)
+    except:
+        return {}
+    location = location.raw["display_name"]#.split(',')#.rstrip().lstrip()
+    location = location.replace(" ", "+")
+    return location
