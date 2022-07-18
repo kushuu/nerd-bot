@@ -182,7 +182,8 @@ class Nerdy(commands.Cog):
                 await context.send("Capital of " + str(state) + " : "  + cap)
                 return
         
-        cap = caps_all.world_caps(args[0].lower())
+        # print(" ".join(args[:]).lower())
+        cap = caps_all.world_caps(" ".join(args[:]).lower())
         if cap == -1:
             await context.send("Enter a valid country or get your spellings checked!")
             return
