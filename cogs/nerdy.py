@@ -106,12 +106,12 @@ class Nerdy(commands.Cog):
         except:
             await context.send("Cant evaluate that expression right now :(")
             return
-        await context.send("Your expression evaluates to: " + ans)
+        await context.send(f"Your expression evaluates to: `{ans}`")
 
     @commands.command()
     async def news(self, context, *args):
         '''
-        Gives latest news/articles in the field of : general, tech, physics
+        Gives latest news/articles in the field of : general, tech and physics
         '''
         if len(args) < 1:
             await context.send("Please enter one of the valid arguments.")
@@ -123,9 +123,7 @@ class Nerdy(commands.Cog):
             entries = NewsFeed.entries
             idx = random.randint(0, len(entries)-1)
             entry = entries[idx]
-            await context.send("Published on : " + str(entry.published))
-            await context.send("Title : " + str(entry.title))
-            await context.send(entry.link)
+            await context.send(f"> Published on : {str(entry.published)}\n> Title : {str(entry.title)}\n> {entry.link}")
             
         elif args[0] == "tech":
             NewsFeed = feedparser.parse("https://www.theverge.com/rss/index.xml")
@@ -133,9 +131,7 @@ class Nerdy(commands.Cog):
             entries = NewsFeed.entries
             idx = random.randint(0, len(entries)-1)
             entry = entries[idx]
-            await context.send("Published on : " + str(entry.published))
-            await context.send("Title : " + str(entry.title))
-            await context.send(entry.link)
+            await context.send(f"> Published on : {str(entry.published)}\n> Title : {str(entry.title)}\n> {entry.link}")
 
         elif args[0] == "physics":
             NewsFeed = feedparser.parse("https://phys.org/rss-feed/physics-news/")
@@ -143,9 +139,7 @@ class Nerdy(commands.Cog):
             entries = NewsFeed.entries
             idx = random.randint(0, len(entries)-1)
             entry = entries[idx]
-            await context.send("Published on : " + str(entry.published))
-            await context.send("Title : " + str(entry.title))
-            await context.send(entry.link)
+            await context.send(f"> Published on : {str(entry.published)}\n> Title : {str(entry.title)}\n> {entry.link}")
         else:
             await context.send("Please enter one of the valid arguments.")
             return
@@ -204,9 +198,7 @@ class Nerdy(commands.Cog):
         if lat == -1 or longi == -1:
             await context.send("Please enter a valid US state or get your spellings checked!")
             return
-        await context.send("{}'s captial : {}".format(state, caps_all.us_caps(state)))
-        await context.send("{}'s latitude : ".format(caps_all.us_caps(state)) + str(lat))
-        await context.send("{}'s longitude : ".format(caps_all.us_caps(state)) + str(longi))
+        await context.send(f"> {state.title()}'s captial : {caps_all.us_caps(state)}\n> {caps_all.us_caps(state)}'s latitude : {str(lat)}\n> {caps_all.us_caps(state)}'s longitude : {str(longi)}")
         place = caps_all.reverseGeocode((lat, longi))
         if place != 0:
             await context.send("https://www.google.com/maps/place/" + place)
