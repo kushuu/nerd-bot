@@ -2,3 +2,6 @@
 __pycache__/
 .env
 temp.*
+music/
+*.m4a
+*.webm

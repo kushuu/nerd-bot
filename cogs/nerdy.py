@@ -21,6 +21,40 @@ class Nerdy(commands.Cog):
             self.reddit = praw.Reddit(client_id = REDDIT_APP_ID, client_secret = REDDIT_SECRET, user_agent = "nerdy discord bot hehe")
 
     @commands.command()
+    async def where_am_i(self, context):
+        '''
+        Gives details about the servr the bot is present in.
+        '''
+
+        owner = str(context.guild.owner)
+        region = str(context.guild.region)
+        guild_id = str(context.guild.id)
+        memberCount = str(context.guild.member_count)
+        icon = str(context.guild.icon_url)
+        desc = context.guild.description
+        
+        embed = discord.Embed(
+            title=context.guild.name + " Server Information",
+            description=desc,
+            color=discord.Color.blue()
+        )
+        embed.set_thumbnail(url=icon)
+        embed.add_field(name="Owner", value=owner, inline=True)
+        embed.add_field(name="Server ID", value=guild_id, inline=True)
+        embed.add_field(name="Region", value=region, inline=True)
+        embed.add_field(name="Member Count", value=memberCount, inline=True)
+
+        await context.send(embed=embed)
+
+        members=[]
+        all_members_details = ''
+        async for member in context.guild.fetch_members(limit=150) :
+            all_members_details += '> Name : {}\t Status : {}\t Joined at {}\n'.format(member.display_name,str(member.status),str(member.joined_at))
+        
+        await context.send(all_members_details)
+        return
+
+    @commands.command()
     async def meme(self, context, *args):
         '''
         Command to get physics/general nerdy memes.
