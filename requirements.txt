@@ -4,3 +4,4 @@ praw==7.2.0
 feedparser==6.0.2
 discord==1.0.1
 python-dotenv==0.16.0
+youtube-dl==2021.4.26
